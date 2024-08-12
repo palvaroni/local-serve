@@ -14,6 +14,12 @@ def serve_file(filename):
 if __name__ == '__main__':
 	global rootPath
 	
-	rootPath = sys.argv[-1] if sys.argv else '.'
+	rootPath = '.'
+	for i, arg in enumerate(sys.argv):
+		if arg == '-p':
+			rootPath = sys.argv[i + 1]
+			break
+
+	print('Serving files from', rootPath)
 	
-	app.run(debug=True)
+	app.run(debug=False)
