@@ -15,4 +15,4 @@ Serve with `serve.exe -p <rootPath>`. The `rootPath` parameter is defined relati
 2. Put `run.exe` into the directory that contains the files to serve.
 3. Create `index.html` to the root directory if it does not exist.
 4. Run the executable.
-5. Navigate to `localhost:5000` with any browser.
+5. A browser window should open automatically. If not, navigate to `localhost:5000` with any browser.
