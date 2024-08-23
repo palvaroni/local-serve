@@ -1,5 +1,8 @@
 import sys
 import os
+import time
+import threading
+import webbrowser 
 from flask import Flask, redirect, send_from_directory
 
 app = Flask(__name__)
@@ -12,6 +15,10 @@ def index():
 def serve_file(filename):
 	return send_from_directory(rootPath, filename)
 
+def open_browser_with_delay():
+	time.sleep(1)
+	webbrowser.open('http://localhost:5000')
+
 if __name__ == '__main__':
 	global rootPath
 
@@ -21,4 +28,5 @@ if __name__ == '__main__':
 			rootPath = os.path.join(rootPath, sys.argv[i + 1])
 			break
 	
+	threading.Thread(target=open_browser_with_delay).start()
 	app.run(debug=False)
